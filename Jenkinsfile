@@ -25,9 +25,9 @@ node {
             docker.image("naveengoswami/discovery-service:${env.version}").run('-p 8761:8761 -h discovery --name discovery')
         }
 
-        stage ('Final') {
-            build job: 'account-service', wait: false
-        }      
+//        stage ('Final') {
+//            build job: 'account-service', wait: false
+//        }      
 
     }
 
