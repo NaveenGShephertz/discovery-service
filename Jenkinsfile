@@ -22,15 +22,10 @@ node {
         }
 
         stage ('Run') {
-//           docker.image("discovery-service:latest").run('-p 8761:8761 -h discovery --name discovery')
 			dir ('discovery-service') {
-				sh ‘docker-compose –f docker-compose.yml run –rm compile’
+				sh ‘docker stack deploy -c docker-compose.yml discovery-service’
 			}
         }
-
-//        stage ('Final') {
-//            build job: 'account-service', wait: false
-//        }      
 
     }
 
