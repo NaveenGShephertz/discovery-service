@@ -19,7 +19,7 @@ node {
         }
 
         stage ('Run') {
-				sh ‘docker stack deploy -c docker-compose.yml discovery-service’
+				sh 'docker stack deploy -c docker-compose.yml discovery-service'
         }
 
     }
