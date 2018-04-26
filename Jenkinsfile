@@ -3,7 +3,7 @@ node {
     withMaven(maven:'maven') {
 
         stage('Checkout') {
-            git url: 'https://github.com/piomin/sample-spring-microservices.git', credentialsId: 'github-piomin', branch: 'master'
+            git url: 'https://github.com/NaveenGShephertz/discovery-service.git', credentialsId: 'naveengshephertz', branch: 'master'
         }
 
         stage('Build') {
@@ -15,16 +15,11 @@ node {
         }
 
         stage('Image') {
-            dir ('discovery-service') {
                 def app = docker.build "discovery-service:latest"
-                
-            }
         }
 
         stage ('Run') {
-			dir ('discovery-service') {
 				sh ‘docker stack deploy -c docker-compose.yml discovery-service’
-			}
         }
 
     }
