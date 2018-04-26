@@ -23,7 +23,9 @@ node {
 
         stage ('Run') {
 //           docker.image("discovery-service:latest").run('-p 8761:8761 -h discovery --name discovery')
-			sh ‘docker-compose –f docker-compose.yml run –rm compile’
+			dir ('discovery-service') {
+				sh ‘docker-compose –f docker-compose.yml run –rm compile’
+			}
         }
 
 //        stage ('Final') {
