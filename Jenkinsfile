@@ -16,14 +16,14 @@ node {
 
         stage('Image') {
             dir ('discovery-service') {
-                def app = docker.build "naveengoswami/discovery-service:${env.version}"
+                def app = docker.build "discovery-service:latest"
                 
             }
         }
 
-        stage ('Run') {
-            docker.image("naveengoswami/discovery-service:${env.version}").run('-p 8761:8761 -h discovery --name discovery')
-        }
+//        stage ('Run') {
+//            docker.image("discovery-service:latest").run('-p 8761:8761 -h discovery --name discovery')
+//        }
 
 //        stage ('Final') {
 //            build job: 'account-service', wait: false

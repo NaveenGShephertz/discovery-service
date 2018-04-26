@@ -1,0 +1,10 @@
+version: '2'
+services:
+    config-server:
+        container_name: discovery-service
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: discovery-service:latest
+        expose:
+            - 8761:8761
